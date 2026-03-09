@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejemplos de JavaScript</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:40px;
+    background:#f4f4f4;
+}
+
+h1{
+    text-align:center;
+}
+
+section{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:8px;
+}
+
+button{
+    padding:10px;
+    margin-top:10px;
+}
+
+.resultado{
+    margin-top:10px;
+    font-weight:bold;
+    color:#1a73e8;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Ejemplos Prácticos de JavaScript</h1>
+
+<!-- CONTROL DE FLUJO -->
+<section>
+<h2>1. Control de Flujo (if / else)</h2>
+
+<input type="number" id="edad" placeholder="Ingrese su edad">
+<button onclick="verificarEdad()">Verificar</button>
+
+<p class="resultado" id="resultadoEdad"></p>
+</section>
+
+<section>
+<h2>Switch</h2>
+
+<select id="dia">
+<option value="1">Lunes</option>
+<option value="2">Martes</option>
+<option value="3">Miércoles</option>
+<option value="4">Jueves</option>
+<option value="5">Viernes</option>
+</select>
+
+<button onclick="verDia()">Mostrar</button>
+
+<p class="resultado" id="resultadoDia"></p>
+</section>
+
+<!-- BUCLES -->
+<section>
+
+<h2>2. Bucles</h2>
+
+<button onclick="ejemploFor()">Ejemplo FOR</button>
+<button onclick="ejemploWhile()">Ejemplo WHILE</button>
+<button onclick="ejemploDoWhile()">Ejemplo DO WHILE</button>
+
+<p class="resultado" id="resultadoBucle"></p>
+
+</section>
+
+<!-- FUNCIONES -->
+<section>
+
+<h2>3. Funciones</h2>
+
+<button onclick="mostrarFunciones()">Ejecutar Funciones</button>
+
+<p class="resultado" id="resultadoFuncion"></p>
+
+</section>
+
+<!-- OPERADORES -->
+<section>
+
+<h2>4. Operadores</h2>
+
+<button onclick="operadores()">Mostrar Operaciones</button>
+
+<p class="resultado" id="resultadoOperador"></p>
+
+</section>
+
+<!-- NUMEROS Y FECHAS -->
+<section>
+
+<h2>5. Números y Fechas</h2>
+
+<button onclick="numerosFechas()">Mostrar Datos</button>
+
+<p class="resultado" id="resultadoNumero"></p>
+
+</section>
+
+<!-- STRINGS -->
+<section>
+
+<h2>6. Strings</h2>
+
+<button onclick="ejemploString()">Ejemplo String</button>
+
+<p class="resultado" id="resultadoString"></p>
+
+</section>
+
+<!-- ARRAYS -->
+<section>
+
+<h2>7. Arreglos</h2>
+
+<button onclick="ejemploArray()">Mostrar Array</button>
+
+<p class="resultado" id="resultadoArray"></p>
+
+</section>
+
+<!-- ERRORES -->
+<section>
+
+<h2>8. Manejo de Errores</h2>
+
+<button onclick="probarError()">Probar Error</button>
+
+<p class="resultado" id="resultadoError"></p>
+
+</section>
+
+<script>
+
+//// CONTROL DE FLUJO
+
+function verificarEdad(){
+
+let edad = document.getElementById("edad").value
+let resultado
+
+if(edad >= 18){
+resultado = "Eres mayor de edad"
+}else{
+resultado = "Eres menor de edad"
+}
+
+document.getElementById("resultadoEdad").innerHTML = resultado
+
+}
+
+
+function verDia(){
+
+let dia = document.getElementById("dia").value
+let mensaje
+
+switch(dia){
+
+case "1":
+mensaje = "Hoy es Lunes"
+break
+
+case "2":
+mensaje = "Hoy es Martes"
+break
+
+case "3":
+mensaje = "Hoy es Miércoles"
+break
+
+case "4":
+mensaje = "Hoy es Jueves"
+break
+
+case "5":
+mensaje = "Hoy es Viernes"
+break
+
+default:
+mensaje = "Día inválido"
+
+}
+
+document.getElementById("resultadoDia").innerHTML = mensaje
+
+}
+
+//// BUCLES
+
+function ejemploFor(){
+
+let texto = ""
+
+for(let i=1; i<=5; i++){
+texto += i + " "
+}
+
+document.getElementById("resultadoBucle").innerHTML = texto
+
+}
+
+function ejemploWhile(){
+
+let i = 1
+let texto = ""
+
+while(i<=5){
+texto += i + " "
+i++
+}
+
+document.getElementById("resultadoBucle").innerHTML = texto
+
+}
+
+function ejemploDoWhile(){
+
+let i=1
+let texto=""
+
+do{
+texto += i + " "
+i++
+}
+while(i<=5)
+
+document.getElementById("resultadoBucle").innerHTML = texto
+
+}
+
+//// FUNCIONES
+
+function suma(a,b){
+return a+b
+}
+
+const multiplicar = function(a,b){
+return a*b
+}
+
+const restar = (a,b)=> a-b
+
+function mostrarFunciones(){
+
+let resultado = `
+Suma: ${suma(5,3)} <br>
+Multiplicación: ${multiplicar(5,3)} <br>
+Resta: ${restar(5,3)}
+`
+
+document.getElementById("resultadoFuncion").innerHTML = resultado
+
+}
+
+//// OPERADORES
+
+function operadores(){
+
+let x=10
+let y=5
+
+let resultado = `
+Suma: ${x+y}<br>
+Multiplicación: ${x*y}<br>
+Comparación: ${x>y}<br>
+AND lógico: ${(x>5 && y>2)}
+`
+
+document.getElementById("resultadoOperador").innerHTML = resultado
+
+}
+
+//// NUMEROS Y FECHAS
+
+function numerosFechas(){
+
+let numero = 5.678
+
+let ahora = new Date()
+
+let resultado = `
+Número formateado: ${numero.toFixed(2)} <br>
+Número aleatorio: ${Math.random()} <br>
+Año actual: ${ahora.getFullYear()} <br>
+Mes actual: ${ahora.getMonth()+1}
+`
+
+document.getElementById("resultadoNumero").innerHTML = resultado
+
+}
+
+//// STRINGS
+
+function ejemploString(){
+
+let texto = "  Hola JavaScript  "
+
+let resultado = `
+Longitud: ${texto.length}<br>
+Mayúsculas: ${texto.toUpperCase()}<br>
+Sin espacios: ${texto.trim()}<br>
+Contiene 'Java'? ${texto.includes("Java")}
+`
+
+document.getElementById("resultadoString").innerHTML = resultado
+
+}
+
+//// ARRAYS
+
+function ejemploArray(){
+
+let numeros=[1,2,3,4]
+
+numeros.push(5)
+
+let resultado = `
+Array: ${numeros}<br>
+Cantidad: ${numeros.length}
+`
+
+document.getElementById("resultadoArray").innerHTML = resultado
+
+}
+
+//// ERRORES
+
+function probarError(){
+
+try{
+
+let numero = "abc"
+
+if(isNaN(numero)){
+throw new Error("El valor no es un número")
+}
+
+}catch(error){
+
+document.getElementById("resultadoError").innerHTML = error.message
+
+}finally{
+
+console.log("Proceso finalizado")
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
